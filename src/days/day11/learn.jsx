@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import {Star, Search, CheckCircle} from 'lucide-react';
 
 export default function MainComponent() {
@@ -24,6 +25,9 @@ export default function MainComponent() {
         </div>
         <div>
             <RegistrationForm />
+        </div>
+        <div>
+          <DynamicFormFields />
         </div>
     </div>
   );
@@ -736,4 +740,221 @@ const RegistrationForm = () => {
             <button type="submit" style={{ padding: '10px 20px', backgroundColor: '#2563eb', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Register</button>
         </form>
     );
+}
+
+function DynamicFormFields() {
+  const [formData, setFormData] = useState({
+    country: 'us',
+    name: '',
+    usState: '',
+    ukCounty: '',
+    canadaProvince: '',
+    australiaState: ''
+  });
+
+  // Define country-specific fields
+  const countryFields = {
+    us: {
+      label: 'United States',
+      field: 'usState',
+      type: 'select',
+      options: ['California', 'Texas', 'Florida', 'New York', 'Washington']
+    },
+    uk: {
+      label: 'United Kingdom',
+      field: 'ukCounty',
+      type: 'input',
+      placeholder: 'Enter your county (e.g., Yorkshire, Kent)'
+    },
+    canada: {
+      label: 'Canada',
+      field: 'canadaProvince',
+      type: 'select',
+      options: ['Ontario', 'British Columbia', 'Quebec', 'Alberta', 'Manitoba']
+    },
+    australia: {
+      label: 'Australia',
+      field: 'australiaState',
+      type: 'select',
+      options: ['New South Wales', 'Victoria', 'Queensland', 'Western Australia', 'South Australia']
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = () => {
+    const country = countryFields[formData.country];
+    const regionValue = formData[country.field];
+    
+    console.log('Form submitted:', {
+      name: formData.name,
+      country: country.label,
+      region: regionValue
+    });
+    
+    alert(`Registration complete!\n\nName: ${formData.name}\nCountry: ${country.label}\nRegion: ${regionValue}`);
+    
+    // Reset
+    setFormData({
+      country: 'us',
+      name: '',
+      usState: '',
+      ukCounty: '',
+      canadaProvince: '',
+      australiaState: ''
+    });
+  };
+
+  const currentCountry = countryFields[formData.country];
+  const regionValue = formData[currentCountry.field];
+  const isFormValid = formData.name && regionValue;
+
+  return (
+    <div style={{ padding: '30px', fontFamily: 'Arial', maxWidth: '450px', margin: '0 auto' }}>
+      <h1>🌍 International Registration</h1>
+      <p style={{ color: '#666' }}>Fill in your details based on your country</p>
+
+      {/* Name Input - Always shown */}
+      <div style={{ marginBottom: '20px' }}>
+        <label>Full Name:</label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Enter your name"
+          style={{
+            width: '100%',
+            padding: '10px',
+            marginTop: '5px',
+            fontSize: '14px',
+            boxSizing: 'border-box',
+            border: '1px solid #ccc',
+            borderRadius: '4px'
+          }}
+        />
+      </div>
+
+      {/* Country Selector - Always shown */}
+      <div style={{ marginBottom: '20px' }}>
+        <label>Select Your Country:</label>
+        <select
+          name="country"
+          value={formData.country}
+          onChange={handleChange}
+          style={{
+            width: '100%',
+            padding: '10px',
+            marginTop: '5px',
+            fontSize: '14px',
+            boxSizing: 'border-box',
+            border: '1px solid #ccc',
+            borderRadius: '4px'
+          }}
+        >
+          <option value="us">United States</option>
+          <option value="uk">United Kingdom</option>
+          <option value="canada">Canada</option>
+          <option value="australia">Australia</option>
+        </select>
+      </div>
+
+      {/* DYNAMIC FIELDS - Changes based on country selection */}
+      <div style={{ marginBottom: '20px' }}>
+        <label>{currentCountry.label} - {currentCountry.type === 'select' ? 'Region/State' : 'County'}:</label>
+
+        {/* If it's a select dropdown */}
+        {currentCountry.type === 'select' && (
+          <select
+            name={currentCountry.field}
+            value={regionValue}
+            onChange={handleChange}
+            style={{
+              width: '100%',
+              padding: '10px',
+              marginTop: '5px',
+              fontSize: '14px',
+              boxSizing: 'border-box',
+              border: '1px solid #ccc',
+              borderRadius: '4px'
+            }}
+          >
+            <option value="">-- Select --</option>
+            {currentCountry.options.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        )}
+
+        {/* If it's a text input */}
+        {currentCountry.type === 'input' && (
+          <input
+            type="text"
+            name={currentCountry.field}
+            value={regionValue}
+            onChange={handleChange}
+            placeholder={currentCountry.placeholder}
+            style={{
+              width: '100%',
+              padding: '10px',
+              marginTop: '5px',
+              fontSize: '14px',
+              boxSizing: 'border-box',
+              border: '1px solid #ccc',
+              borderRadius: '4px'
+            }}
+          />
+        )}
+      </div>
+
+      {/* Summary Card */}
+      <div style={{
+        backgroundColor: '#e7f3ff',
+        border: '1px solid #b3d9ff',
+        padding: '15px',
+        borderRadius: '5px',
+        marginBottom: '20px',
+        fontSize: '14px'
+      }}>
+        <strong>📋 Your Details:</strong>
+        <p style={{ marginTop: '8px', marginBottom: '5px' }}>
+          <strong>Name:</strong> {formData.name || 'Not provided'}
+        </p>
+        <p style={{ marginBottom: '5px' }}>
+          <strong>Country:</strong> {currentCountry.label}
+        </p>
+        <p>
+          <strong>Region:</strong> {regionValue || 'Not selected'}
+        </p>
+      </div>
+
+      {/* Submit Button */}
+      <button
+        onClick={handleSubmit}
+        disabled={!isFormValid}
+        style={{
+          width: '100%',
+          padding: '12px',
+          fontSize: '16px',
+          fontWeight: 'bold',
+          backgroundColor: isFormValid ? '#007bff' : '#ccc',
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: isFormValid ? 'pointer' : 'not-allowed',
+          transition: 'background-color 0.3s'
+        }}
+      >
+        {isFormValid ? '✓ Complete Registration' : 'Fill all fields'}
+      </button>
+    </div>
+  );
 }
