@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Changed from height to min-height */
+    min-height: 100vh;
 }
 
 #root {
