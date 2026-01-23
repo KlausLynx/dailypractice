@@ -225,7 +225,7 @@ const App = () => {
     {/* <LucideApp /> */}
     {/* <AllComponent /> */}
     {/* <MainComponent /> */}
-    <BrowserRouter>
+    <BrowserRouter basename="/todo">
       <Routes>
         <Route path="/" element={<MainComponent />} />
         <Route path="/home" element={<Home />} />
