@@ -1,57 +1,51 @@
-// 📝 Requirements
-// Your Todo app must have:
-// ✅ Core Features
-
-// Display todos - Show a list of all todos
-// Add todo - Input field + button to add new todos
-// Delete todo - Button to remove a todo from the list
-// Mark complete - Toggle a todo as done/not done (strikethrough or different style)
-// Visual feedback - Show completed todos differently (strikethrough, opacity, color, etc.)
-
-// ✅ Technical Requirements
-
-// Use useState for managing todos
-// Use useEffect (at least once - be creative!)
-// Proper component structure
-// Handle edge cases (empty input, empty list, etc.)
-// Good UX (no console errors, responsive buttons)
-
-// ✅ Nice to Have (Challenge yourself!)
-
-// Persist todos to localStorage and reload on mount
-// Filter todos (Show All / Active / Completed)
-// Edit existing todos
-// Add timestamps to todos
-// Clear all completed todos button
-
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import {MoreHorizontal} from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function MainComponent () {
     return (
-        <div>
+        <div className='bg-indigo-300 min-h-screen'>
             <TodoApp />
         </div>
     )
 }
 
 const TodoApp = () => {
+    const h1Colors = ['text-green-700', 'text-blue-700', 'text-amber-700', 'text-purple-700'];
     return (
-        <div>
-            <div>
-                <h1>Todo</h1>
+        <div className="max-w-4xl mx-auto">
+            <div className=" rounded-lg min-h-screen p-6 flex flex-col justify-around items-center">
+                <h1 className='font-bold text-6xl'>
+                    {"Todo".split('').map((char, index)=> (
+                        <span key={index} className={h1Colors[index % h1Colors.length]}>{char}</span>
+                    ))}
+                </h1>
+
                 <div><strong>“Successful people don’t remember more, they track better.”</strong></div>
-                <button>Get Started</button>
-                <div>
-                    <div>
+                <button className="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-colors cursor-pointer">
+                    <Link to="/home">Get Started</Link>
+                </button>
+                <div className='bg-cyan-100 w-full max-w-md p-4 rounded-lg shadow-md flex flex-col gap-6'>
+                    <div className='flex justify-between items-center'>
                         <h4 className='line-through'>Download todo app</h4>
                         <MoreHorizontal />
                     </div>
-                    <p>The first step for better life</p>
-                    <div>
-                        <div>
-                            <span className='block bg-sky-500 w-24 h-24'>jihib</span>
-                            <span></span>
+                    <small className='text-gray-400 line-through'>The first step for better life</small>
+                    <div className='flex justify-between items-center'>
+                        <div className='max-w-md max-h-md flex justify-center gap-2'>
+                            <span className='inline-block bg-emerald-600 w-[20px] h-5 rounded-full'></span>
+                            <span className='inline-block bg-purple-600 w-[20px] h-5 rounded-full'></span>
+                        </div>
+                        <div className=''>
+                            <label className="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" className="hidden" checked readOnly />
+                                <span className="w-5 h-5 border-2 border-gray-400 rounded flex items-center justify-center bg-blue-600">
+                                    <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </span>
+                                <span>Done</span>
+                            </label>
                         </div>
                     </div>
                 </div>

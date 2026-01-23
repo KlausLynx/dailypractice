@@ -2,6 +2,8 @@ import React from 'react';
 // import { useState } from 'react';
 import '../src/index.css';
 import 'flowbite/dist/flowbite.min.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 
 // import ProfileCard from './days/day1/profilecard.jsx';
 
@@ -56,6 +58,7 @@ import 'flowbite/dist/flowbite.min.css';
 // import MainComponent from './days/day13/learn';
 
 import MainComponent from './days/day14/learn';
+import Home from './days/day14/home.jsx';
 
 
 
@@ -221,7 +224,13 @@ const App = () => {
     {/* <Handles /> */}
     {/* <LucideApp /> */}
     {/* <AllComponent /> */}
-    <MainComponent />
+    {/* <MainComponent /> */}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainComponent />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
     </>
   )
 }
