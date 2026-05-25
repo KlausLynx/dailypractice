@@ -25,7 +25,7 @@ function UserStats() {
                 {stats.verified && <span className="verified-badge" style={{}}>✔️</span>}
             </div>
         </div>
-       
+
         <div className="card-body">
           <h2 style={{fontWeight: "bolder", marginBottom: '1rem'}}>Statistics</h2>
           <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem'}}>

@@ -25,7 +25,7 @@ export function AuthProvider({children}) {
     const logout = () => {
         setUser(null)
         setIsLoggedIn(false)
-     }
+    }
 
     return (
         <AuthContext.Provider value={{
@@ -37,10 +37,7 @@ export function AuthProvider({children}) {
         >
             {children}
         </AuthContext.Provider>
-
     )
-
-
 }
 
 export default AuthContext;

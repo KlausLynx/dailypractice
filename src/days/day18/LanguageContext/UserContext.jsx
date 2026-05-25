@@ -3,7 +3,7 @@
 // Create a button to switch languages
 // Display translated text in multiple components
 
-import {createContext, useState } from "react";
+import { createContext, useState } from "react";
 
 const LanguageContext = createContext();
 

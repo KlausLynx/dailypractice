@@ -1,8 +1,8 @@
 import React from 'react'
 const menuItems = [
-        { text: 'Home', url: '/' },
-        { text: 'About', url: '/about' },
-        { text: 'Contact', url: '/contact' },
+    { text: 'Home', url: '/' },
+    { text: 'About', url: '/about' },
+    { text: 'Contact', url: '/contact' },
 ];
 
 const NavBar = ({items = menuItems}) => {

@@ -17,13 +17,11 @@ function App() {
             <UserProvider>
                 <CartProvider>
                     <Header />
-                    
                     <div className="products">
                         {products.map(product => (
                             <ProductCard key={product.id} product={product} />
                         ))}
                     </div>
-                    
                     <CartDisplay />
                 </CartProvider>
             </UserProvider>

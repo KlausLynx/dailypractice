@@ -45,12 +45,12 @@ const SimpleToggle = () => {
                 }}>
                     <button onClick={() => setIsOff(false)}
                     style={{
-                         backgroundColor: isOFF ? 'transparent' : 'green',
+                        backgroundColor: isOFF ? 'transparent' : 'green',
                         width: '50%'
                     }}>ON</button>
                     <button onClick={() => setIsOff(true)}
                     style={{
-                         backgroundColor: isOFF ? 'red' : 'transparent',
+                        backgroundColor: isOFF ? 'red' : 'transparent',
                         width: '50%'
                     }}>OFF</button>
                 </div>
@@ -100,7 +100,7 @@ function ColorPicker() {
                     </button>
                 ))}
             </div>
-             <div 
+            <div 
                 style={{
                     width: '100%',
                     height: 'fit-content',
@@ -113,7 +113,6 @@ function ColorPicker() {
                 <h4>Current Color: <span style={{color: selectedColor}}>{colorLabel}</span></h4>
                 <p>Has multiple color buttons <br /> Clicking a button changes the background color of the box below to the selected color</p>
             </div>
-           
         </div>
     );
 }
@@ -136,45 +135,45 @@ const FormInputCounter = () => {
         <div style={contStyle}>
             <h2>Form Input Counter</h2>
 
-<div style={{
-      position: 'relative',
-      width: '100%',
-      maxWidth: '400px',
-      margin: '20px auto'
-    }}>
-      <input
-        style={{
-          width: '100%',
-          padding: '10px 80px 10px 10px',
-          fontSize: '16px',
-          border: '1px solid #ccc',
-          borderRadius: '4px',
-          boxSizing: 'border-box'
-        }}
-        type="text"
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder="Type something..."
-      />
-      <button
-        onClick={handleClear}
-        style={{
-          position: 'absolute',
-          right: '5px',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          padding: '6px 12px',
-          backgroundColor: '#f44336',
-          color: 'white',
-          border: 'none',
-          borderRadius: '3px',
-          cursor: 'pointer',
-          fontSize: '14px'
-        }}
-      >
-        Clear
-      </button>
-    </div>
+            <div style={{
+                position: 'relative',
+                width: '100%',
+                maxWidth: '400px',
+                margin: '20px auto'
+                }}>
+                <input
+                    style={{
+                    width: '100%',
+                    padding: '10px 80px 10px 10px',
+                    fontSize: '16px',
+                    border: '1px solid #ccc',
+                    borderRadius: '4px',
+                    boxSizing: 'border-box'
+                    }}
+                    type="text"
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    placeholder="Type something..."
+                />
+                <button
+                    onClick={handleClear}
+                    style={{
+                    position: 'absolute',
+                    right: '5px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    padding: '6px 12px',
+                    backgroundColor: '#f44336',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '3px',
+                    cursor: 'pointer',
+                    fontSize: '14px'
+                    }}
+                >
+                    Clear
+                </button>
+            </div>
             <div><p>{charCount}</p></div>
 
             <div>

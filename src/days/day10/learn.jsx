@@ -39,7 +39,7 @@ export default function MainComponent () {
 function ProductItem({name, src, price, value, onValueChange}) {
     const decrement = () => {
         if (value > 0) {
-            onValueChange(value - 1);
+          onValueChange(value - 1);
         }
     }
     const buttonStyle = {
