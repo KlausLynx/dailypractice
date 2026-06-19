@@ -5,7 +5,7 @@
 // Persist cart to localStorage
 // Show cart count badge in header
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useCart } from "./context/index"
 
 // Helper Function

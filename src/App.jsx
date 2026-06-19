@@ -68,7 +68,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // import MainComponent from './days/day18/userContext/app';
 
-import MainComponent from './days/day19/ShopingCart'
+import MainComponent from './days/day19/settings/settingContent'
 
 // import MainComponent from './days/day19/Multicontent';
 
