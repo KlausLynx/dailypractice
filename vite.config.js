@@ -6,8 +6,12 @@ import { visualizer } from "rollup-plugin-visualizer"
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(),visualizer({open: true}), tailwindcss(), flowbiteReact()],
-    // base: '/todo/',
+  plugins: [react(), visualizer({open: true}), tailwindcss(), flowbiteReact()],
+  test: {
+    globals: true,         // so you don't have to import describe/it/expect
+    environment: 'jsdom',  // fake browser
+    setupFiles: './src/setupTests.js',
+  },
     build: {
       outDir: 'docs'  
     }

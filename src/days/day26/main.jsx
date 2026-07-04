@@ -349,6 +349,31 @@ function ErrorLayout() {
     );
 }
 
+// import * as Sentry from "@sentry/react";
+
+// function logToService(error, info) {
+//   // 1. Send to Sentry
+//   Sentry.captureException(error, {
+//     extra: {
+//       componentStack: info?.componentStack,
+//     },
+//   });
+
+//   // 2. Send to your own backend, which saves it to your database
+//   fetch("/api/log-error", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({
+//       message: error.message,
+//       stack: error.stack,
+//       componentStack: info?.componentStack,
+//       timestamp: new Date().toISOString(),
+//     }),
+//   }).catch((err) => {
+//     // if logging itself fails, at least don't crash the app over it
+//     console.error("Failed to log error to database:", err);
+//   });
+// }
 
 
 // Layout
