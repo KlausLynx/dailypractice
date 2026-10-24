@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 // import { useState } from 'react';
 import '../src/index.css';
 import 'flowbite/dist/flowbite.min.css';
@@ -76,7 +76,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // import MainComponent from './days/day29/main';
 
-import MainComponent from './days/day30/mainRouter'
+// import MainComponent from './days/day30/mainRouter'
+
+import MainComponent from './days/day31/router/mainRouter'
 
 
 const App = () => {

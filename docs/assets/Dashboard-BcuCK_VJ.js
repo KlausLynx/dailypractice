@@ -1,0 +1,1 @@
+import{u as r,j as s}from"./index-B39VUi6V.js";const t=()=>{const{user:e}=r();return s.jsxs(s.Fragment,{children:[s.jsxs("h1",{children:["Welcome ",e.name]}),s.jsx("p",{children:"This is the Dashboard Page"})]})};export{t as Component};
