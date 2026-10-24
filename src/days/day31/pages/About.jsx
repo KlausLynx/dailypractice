@@ -1,4 +1,4 @@
-import { Info, Users, Sparkles, ArrowRight } from 'lucide-react'
+import { Info, Users, Sparkles,} from 'lucide-react'
 
 export const Component = () => {
     return (
