@@ -79,7 +79,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import MainComponent from './days/day30/mainRouter'
 
 // import MainComponent from './days/day31/router/mainRouter'
-import MainComponent from './days/day32/layout/mainCom'
+// import MainComponent from './days/day32/layout/mainCom'
+import MainComponent from './days/day33/layout/mainCom'
 
 
 const App = () => {
